@@ -1,0 +1,42 @@
+---
+  - name: if문 지우기 
+    hosts: all
+    gather_facts: true
+    become: yes
+    vars: 
+     dist_name: "{{ 'ubuntu' if ansible_distribution == 'Ubuntu'
+                    else 'amazon' }}"
+
+    tasks:
+      - name: install 
+        include_tasks: "{{ dist_name }}.yaml" 
+
+      - name: Print ip address
+        debug:
+          msg:
+            - "NodeName : {{ansible_nodename }}"
+            - "eth0: {{ ansible_eth0.ipv4.address }}"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
