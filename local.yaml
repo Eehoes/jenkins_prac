@@ -1,0 +1,55 @@
+---
+- name: test
+  hosts: localhost
+  gather_facts: true
+  become: true
+  vars:
+    username: "test2"
+  vars_files:
+    vars.yaml 
+  
+  tasks: 
+   - name: test1
+     debug: 
+       msg: "default log"
+  
+   - name: test2
+     debug: 
+       msg: "pakage manager : {{ansible_pkg_mgr }}, 배포판: {{ ansible_distribution }}"    
+  
+   - name: test3
+     debug:
+       msg: "name : {{ username }}"  
+     when: username == "test2"
+  
+   - name: test4
+     debug: 
+       msg: "file : {{ name1 }}"
+  
+   - name: test5
+     debug: 
+       msg: "file : {{ names[0], names[1], names[2] }}"  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

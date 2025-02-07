@@ -1,0 +1,69 @@
+--- 
+- name: install web
+  hosts: seoul
+  gather_facts: false
+  become: true
+  tasks:
+    - name: install git 
+      yum:
+        name: git
+        state: latest
+
+    - name: install httpd
+      yum:
+        name: httpd
+        state: latest
+    
+    - name: start httpd
+      service:
+        name: httpd
+        state: started
+
+    - name: httpd port change
+      lineinfile: 
+       path: /etc/httpd/conf/httpd.conf
+       regexp: '^Listen\s+' 
+       line: 'Listen 80'
+      notify:
+        - httpd restart 
+
+          
+  handlers: 
+    - name: httpd restart
+      service: 
+        name: httpd
+        state: restarted
+        enabled: true 
+
+
+
+
+          
+         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
