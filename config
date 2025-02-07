@@ -1,0 +1,27 @@
+# ubuntu1 내껏들
+Host 172.31.8.117
+ User ubuntu
+ IdentityFile ~/lab_iac_0205.pem
+ StrictHostKeyChecking no
+
+
+ # ubuntu2
+Host 172.31.11.106
+ User ubuntu
+ IdentityFile ~/lab_iac_0205.pem
+ StrictHostKeyChecking no
+
+
+# amazon
+Host 172.31.3.155
+ User ec2-user
+ IdentityFile ~/lab_iac_0205.pem
+ StrictHostKeyChecking no
+
+
+# amazon
+Host 172.31.15.180
+ User ec2-user
+ IdentityFile ~/lab_iac_0205.pem
+ StrictHostKeyChecking no
+
